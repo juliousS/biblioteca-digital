@@ -1,16 +1,63 @@
-# React + Vite
+# Biblioteca Digital
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+**Meu pequeno acervo**
 
-Currently, two official plugins are available:
+A Biblioteca Digital é um projeto acadêmico desenvolvido para organizar e gerenciar uma coleção pessoal de mangás.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+O sistema permite visualizar os volumes cadastrados, consultar informações e acompanhar os empréstimos e as devoluções.
 
-## React Compiler
+## Funcionalidades
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- Visualização dos mangás cadastrados.
+- Exibição das capas dos volumes.
+- Pesquisa por título ou autor.
+- Filtro por disponibilidade.
+- Consulta aos detalhes de cada volume.
+- Registro de empréstimos e devoluções.
+- Salvamento automático dos dados no navegador.
 
-## Expanding the ESLint configuration
+## Tecnologias utilizadas
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- React
+- JavaScript
+- Tailwind CSS
+- Vite
+- HTML
+
+## Como executar o projeto
+
+1. Clone este repositório:
+
+   ```bash
+   git clone https://github.com/juliouSS/biblioteca-digital.git
+   ```
+
+2. Entre na pasta do projeto:
+
+   ```bash
+   cd biblioteca-digital
+   ```
+
+3. Instale as dependências:
+
+   ```bash
+   npm install
+   ```
+
+4. Inicie o servidor de desenvolvimento:
+
+   ```bash
+   npm run dev
+   ```
+
+5. Acesse o endereço indicado no terminal.
+
+## Armazenamento
+
+Os dados dos mangás e seus respectivos status são armazenados no navegador utilizando o `localStorage`, permitindo que as informações permaneçam salvas após atualizar a página.
+
+## Autor
+
+**Julio César Simões**
+
+Projeto acadêmico — Biblioteca Digital.
