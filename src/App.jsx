@@ -289,6 +289,21 @@ const devolverManga = (id) => {
 
 </div>
 
+{selecionado.status === 'Disponível' ? (
+  <button
+    onClick={() => emprestarManga(selecionado.id)}
+    className="mt-6 w-full rounded-md bg-gray-900 py-3 text-sm text-white hover:bg-gray-700"
+  >
+    Registrar empréstimo
+  </button>
+) : (
+  <button
+    onClick={() => devolverManga(selecionado.id)}
+    className="mt-6 w-full rounded-md bg-green-700 py-3 text-sm text-white hover:bg-green-800"
+  >
+    Registrar devolução
+  </button>
+)}
 
             <button
               onClick={() => setSelecionado(null)}
