@@ -199,7 +199,7 @@ function App() {
           onClick={() => setSelecionado(null)}
         >
           <div
-            className="w-full max-w-md rounded-lg bg-white p-6"
+            className="w-full max-w-lg rounded-lg bg-white p-6"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="mb-5 flex items-center justify-between">
@@ -212,21 +212,41 @@ function App() {
               </button>
             </div>
 
-            <h4 className="text-2xl font-bold">
-              {selecionado.titulo}
-            </h4>
+            
+<div className="flex flex-col gap-5 sm:flex-row sm:items-start">
 
-            <div className="mt-5 space-y-3 text-sm">
-              <p>
-                <strong>Autor:</strong> {selecionado.autor}
-              </p>
-              <p>
-                <strong>Volume:</strong> {selecionado.volume}
-              </p>
-              <p>
-                <strong>Status:</strong> Disponível
-              </p>
-            </div>
+  {/* Capa do mangá */}
+  <div className="flex justify-center rounded-lg bg-gray-100 p-3 sm:w-1/2">
+    <img
+      src={selecionado.capa}
+      alt={`Capa de ${selecionado.titulo}`}
+      className="max-h-72 w-auto object-contain"
+    />
+  </div>
+
+  {/* Informações */}
+  <div className="flex-1">
+    <h4 className="text-2xl font-bold">
+      {selecionado.titulo}
+    </h4>
+
+    <div className="mt-5 space-y-3 text-sm">
+      <p>
+        <strong>Autor:</strong> {selecionado.autor}
+      </p>
+
+      <p>
+        <strong>Volume:</strong> {selecionado.volume}
+      </p>
+
+      <p>
+        <strong>Status:</strong> Disponível
+      </p>
+    </div>
+  </div>
+
+</div>
+
 
             <button
               onClick={() => setSelecionado(null)}
