@@ -13,7 +13,13 @@ const mangas = [
   { id: 9, titulo: 'Ayashimon', volume: 1, autor: 'Yuji Kaku' },
   { id: 10, titulo: 'Naruto Gold', volume: 12, autor: 'Masashi Kishimoto' },
   { id: 11, titulo: 'Vagabond', volume: 1, autor: 'Takehiko Inoue' },
-  { id: 12, titulo: 'Chainsaw Man', volume: 1, autor: 'Tatsuki Fujimoto' },
+ {
+  id: 12,
+  titulo: 'Chainsaw Man',
+  volume: 1,
+  autor: 'Tatsuki Fujimoto',
+  capa: '/capas/chainsaw-1.jpg',
+},
   { id: 13, titulo: 'Boa Noite Punpun', volume: 1, autor: 'Inio Asano' },
   { id: 14, titulo: 'Fire Punch', volume: 1, autor: 'Tatsuki Fujimoto' },
   { id: 15, titulo: 'Dandadan', volume: 9, autor: 'Yukinobu Tatsu' },
@@ -135,19 +141,27 @@ function App() {
                 key={manga.id}
                 className="overflow-hidden rounded-lg border border-gray-200 bg-white transition hover:border-gray-400"
               >
-                <div className="flex h-44 items-center justify-center bg-gray-100 p-5 text-center">
-                  <div>
-                    <p className="text-xs uppercase tracking-widest text-gray-400">
-                      {manga.autor}
-                    </p>
-                    <h4 className="mt-3 text-lg font-bold">
-                      {manga.titulo}
-                    </h4>
-                    <p className="mt-2 text-sm text-gray-500">
-                      Volume {manga.volume}
-                    </p>
-                  </div>
-                </div>
+                <div className="flex h-56 items-center justify-center bg-gray-100">
+  {manga.capa ? (
+    <img
+      src={manga.capa}
+      alt={`Capa de ${manga.titulo} - Volume ${manga.volume}`}
+      className="h-full w-full object-contain"
+    />
+  ) : (
+    <div className="p-5 text-center">
+      <p className="text-xs uppercase tracking-widest text-gray-400">
+        {manga.autor}
+      </p>
+      <h4 className="mt-3 text-lg font-bold">
+        {manga.titulo}
+      </h4>
+      <p className="mt-2 text-sm text-gray-500">
+        Volume {manga.volume}
+      </p>
+    </div>
+  )}
+</div>
 
                 <div className="p-4">
                   <h4 className="truncate font-semibold">
