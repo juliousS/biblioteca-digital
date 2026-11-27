@@ -2,7 +2,7 @@
 import { useState } from 'react'
 
 
-const mangas = [
+const mangasIniciais = [
   { id: 1, titulo: 'Mob Psycho 100', volume: 6, autor: 'ONE', capa: '/capas/mob-psycho-6.jpg' },
   { id: 2, titulo: 'O Cara que Estou a Fim Não é um Cara?!', volume: 2, autor: 'Sumiko Arai', capa: '/capas/cara-2.png' },
   { id: 3, titulo: 'Dandadan', volume: 5, autor: 'Yukinobu Tatsu', capa: '/capas/dandadan-5.jpg' },
@@ -22,9 +22,46 @@ const mangas = [
 
 
 function App() {
-  const [pesquisa, setPesquisa] = useState('')
-  const [filtro, setFiltro] = useState('Todos')
-  const [selecionado, setSelecionado] = useState(null)
+  const [mangas, setMangas] = useState(() =>
+  mangasIniciais.map((manga) => ({
+    ...manga,
+    status: 'Disponível',
+  }))
+)
+
+const [pesquisa, setPesquisa] = useState('')
+const [filtro, setFiltro] = useState('Todos')
+const [selecionado, setSelecionado] = useState(null)
+
+const emprestarManga = (id) => {
+  setMangas((listaAtual) =>
+    listaAtual.map((manga) =>
+      manga.id === id
+        ? { ...manga, status: 'Emprestado' }
+        : manga
+    )
+  )
+
+  setSelecionado((atual) => ({
+    ...atual,
+    status: 'Emprestado',
+  }))
+}
+
+const devolverManga = (id) => {
+  setMangas((listaAtual) =>
+    listaAtual.map((manga) =>
+      manga.id === id
+        ? { ...manga, status: 'Disponível' }
+        : manga
+    )
+  )
+
+  setSelecionado((atual) => ({
+    ...atual,
+    status: 'Disponível',
+  }))
+}
 
   const catalogoFiltrado = mangas.filter((manga) => {
     const correspondePesquisa =
@@ -32,7 +69,7 @@ function App() {
       manga.autor.toLowerCase().includes(pesquisa.toLowerCase())
 
     const correspondeFiltro =
-      filtro === 'Todos' || filtro === 'Disponíveis'
+  filtro === 'Todos' || manga.status === filtro
 
     return correspondePesquisa && correspondeFiltro
   })
@@ -85,7 +122,9 @@ function App() {
 
           <div className="rounded-lg border border-gray-200 bg-white p-5">
             <p className="text-sm text-gray-500">Disponíveis</p>
-            <p className="mt-2 text-2xl font-bold">{mangas.length}</p>
+            <p className="mt-2 text-2xl font-bold">
+  {mangas.filter((manga) => manga.status === 'Disponível').length}
+</p>
           </div>
 
           <div className="col-span-2 rounded-lg border border-gray-200 bg-white p-5 sm:col-span-1">
@@ -121,7 +160,8 @@ function App() {
                 className="rounded-lg border border-gray-300 bg-white px-4 py-2 text-sm outline-none"
               >
                 <option>Todos</option>
-                <option>Disponíveis</option>
+                <option>Disponível</option>
+                <option>Emprestado</option>
               </select>
             </div>
           </div>
@@ -168,9 +208,11 @@ function App() {
                     Volume {manga.volume}
                   </p>
 
-                  <p className="mt-2 text-xs text-green-700">
-                    Disponível
-                  </p>
+                  <p className={`mt-2 text-xs ${
+  manga.status === 'Disponível' ? 'text-green-700' : 'text-red-600'
+}`}>
+  {manga.status}
+</p>
 
                   <button
                     onClick={() => setSelecionado(manga)}
@@ -240,8 +282,8 @@ function App() {
       </p>
 
       <p>
-        <strong>Status:</strong> Disponível
-      </p>
+  <strong>Status:</strong> {selecionado.status}
+</p>
     </div>
   </div>
 
