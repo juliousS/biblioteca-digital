@@ -1,5 +1,5 @@
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 
 const mangasIniciais = [
@@ -22,16 +22,26 @@ const mangasIniciais = [
 
 
 function App() {
-  const [mangas, setMangas] = useState(() =>
-  mangasIniciais.map((manga) => ({
+  const [mangas, setMangas] = useState(() => {
+  const mangasSalvos = localStorage.getItem('mangas')
+
+  if (mangasSalvos) {
+    return JSON.parse(mangasSalvos)
+  }
+
+  return mangasIniciais.map((manga) => ({
     ...manga,
     status: 'Disponível',
   }))
-)
+})
 
 const [pesquisa, setPesquisa] = useState('')
 const [filtro, setFiltro] = useState('Todos')
 const [selecionado, setSelecionado] = useState(null)
+
+useEffect(() => {
+  localStorage.setItem('mangas', JSON.stringify(mangas))
+}, [mangas])
 
 const emprestarManga = (id) => {
   setMangas((listaAtual) =>
