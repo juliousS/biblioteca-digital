@@ -1,5 +1,4 @@
 # Biblioteca Digital
-
 **Meu pequeno acervo**
 
 A Biblioteca Digital é um projeto acadêmico desenvolvido para organizar e gerenciar uma coleção pessoal de mangás.
