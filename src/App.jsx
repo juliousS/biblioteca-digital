@@ -84,9 +84,6 @@ const devolverManga = (id) => {
             <h1 className="text-xl font-bold tracking-tight">
               Biblioteca Digital
             </h1>
-            <p className="text-xs text-gray-500">
-              Meu pequeno acervo
-            </p>
           </div>
 
           <span className="text-sm text-gray-500">
@@ -106,11 +103,6 @@ const devolverManga = (id) => {
           <h2 className="mb-3 text-3xl font-bold">
             Meu acervo de mangás
           </h2>
-
-          <p className="max-w-xl text-gray-600">
-            Um espaço para organizar, consultar e acompanhar
-            os volumes da minha coleção.
-          </p>
         </section>
 
         {/* Informações */}
