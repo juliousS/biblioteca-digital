@@ -1,29 +1,25 @@
 
 import { useState } from 'react'
 
+
 const mangas = [
-  { id: 1, titulo: 'Mob Psycho 100', volume: 6, autor: 'ONE' },
-  { id: 2, titulo: 'O Cara que Estou a Fim Não é um Cara?!', volume: 2, autor: 'Sumiko Arai' },
-  { id: 3, titulo: 'Dandadan', volume: 5, autor: 'Yukinobu Tatsu' },
-  { id: 4, titulo: 'BLAME!', volume: 1, autor: 'Tsutomu Nihei' },
-  { id: 5, titulo: 'Boa Noite Punpun', volume: 3, autor: 'Inio Asano' },
-  { id: 6, titulo: 'Boa Noite Punpun', volume: 2, autor: 'Inio Asano' },
-  { id: 7, titulo: 'Vagabond', volume: 4, autor: 'Takehiko Inoue' },
-  { id: 8, titulo: 'Dandadan', volume: 6, autor: 'Yukinobu Tatsu' },
-  { id: 9, titulo: 'Ayashimon', volume: 1, autor: 'Yuji Kaku' },
-  { id: 10, titulo: 'Naruto Gold', volume: 12, autor: 'Masashi Kishimoto' },
-  { id: 11, titulo: 'Vagabond', volume: 1, autor: 'Takehiko Inoue' },
- {
-  id: 12,
-  titulo: 'Chainsaw Man',
-  volume: 1,
-  autor: 'Tatsuki Fujimoto',
-  capa: '/capas/chainsaw-1.jpg',
-},
-  { id: 13, titulo: 'Boa Noite Punpun', volume: 1, autor: 'Inio Asano' },
-  { id: 14, titulo: 'Fire Punch', volume: 1, autor: 'Tatsuki Fujimoto' },
-  { id: 15, titulo: 'Dandadan', volume: 9, autor: 'Yukinobu Tatsu' },
+  { id: 1, titulo: 'Mob Psycho 100', volume: 6, autor: 'ONE', capa: '/capas/mob-psycho-6.jpg' },
+  { id: 2, titulo: 'O Cara que Estou a Fim Não é um Cara?!', volume: 2, autor: 'Sumiko Arai', capa: '/capas/cara-2.png' },
+  { id: 3, titulo: 'Dandadan', volume: 5, autor: 'Yukinobu Tatsu', capa: '/capas/dandadan-5.jpg' },
+  { id: 4, titulo: 'BLAME!', volume: 1, autor: 'Tsutomu Nihei', capa: '/capas/blame-1.jpg' },
+  { id: 5, titulo: 'Boa Noite Punpun', volume: 3, autor: 'Inio Asano', capa: '/capas/punpun-3.jpg' },
+  { id: 6, titulo: 'Boa Noite Punpun', volume: 2, autor: 'Inio Asano', capa: '/capas/punpun-2.jpg' },
+  { id: 7, titulo: 'Vagabond', volume: 4, autor: 'Takehiko Inoue', capa: '/capas/vagabond-4.jpg' },
+  { id: 8, titulo: 'Dandadan', volume: 6, autor: 'Yukinobu Tatsu', capa: '/capas/dandadan-6.jpg' },
+  { id: 9, titulo: 'Ayashimon', volume: 1, autor: 'Yuji Kaku', capa: '/capas/ayashimon-1.jpg' },
+  { id: 10, titulo: 'Naruto Gold', volume: 12, autor: 'Masashi Kishimoto', capa: '/capas/naruto-12.jpg' },
+  { id: 11, titulo: 'Vagabond', volume: 1, autor: 'Takehiko Inoue', capa: '/capas/vagabond-1.jpg' },
+  { id: 12, titulo: 'Chainsaw Man', volume: 1, autor: 'Tatsuki Fujimoto', capa: '/capas/chainsaw-1.jpg' },
+  { id: 13, titulo: 'Boa Noite Punpun', volume: 1, autor: 'Inio Asano', capa: '/capas/punpun-1.jpg' },
+  { id: 14, titulo: 'Fire Punch', volume: 1, autor: 'Tatsuki Fujimoto', capa: '/capas/fire-punch-1.jpg' },
+  { id: 15, titulo: 'Dandadan', volume: 9, autor: 'Yukinobu Tatsu', capa: '/capas/dandadan-9.jpg' },
 ]
+
 
 function App() {
   const [pesquisa, setPesquisa] = useState('')
